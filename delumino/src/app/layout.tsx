@@ -1,12 +1,21 @@
 import "./globals.css";
 
 import { Inter } from "next/font/google";
-import { asText } from "@prismicio/client";
+
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
+import { PrismicNextImage } from "@prismicio/next";
+
+import { asText } from "@prismicio/client";
+import * as prismic from "@prismicio/client";
+
+import { Navigation } from "@/components/Navigation";
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
+
+import { GiHamburgerMenu } from "react-icons/gi";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,7 +28,7 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden antialiased">
+      <body className="overflow-x-hidden antialiased bg-black text-white">
         <Header />
         {children}
         <PrismicPreview repositoryName={repositoryName} />
@@ -37,25 +46,36 @@ async function Header() {
     <Bounded as="header" yPadding="sm">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicNextLink
-          href="/"
-          className="text-xl font-semibold tracking-tight"
-        >
-          <PrismicText field={settings.data.siteTitle} />
+            href="/"
+            className="hidden lg:flex items-center gap-x-4 text-xl uppercase font-extrabold tracking-tight"
+          >
+            {/* {prismic.isFilled.image(settings.data.logo) && (
+              <PrismicNextImage
+                field={settings.data.logo}
+                fill={false}
+                className="w-32 h-auto"
+              />
+            )} */}
+            <PrismicText field={settings.data.siteTitle} />
         </PrismicNextLink>
-        <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
+        <div className="hidden lg:flex items-center gap-6">
+          <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
+        </div>
+        <div className="hidden lg:flex items-center gap-6">
+        {Array.isArray(settings.data.cta_links) && settings.data.cta_links.map((ctaLink, index) => (
+              <PrismicNextLink
+                key={index}
+                field={ctaLink.link}
+                className="font-semibold first:-ms-5 px-4 py-2 border rounded-full last:bg-white last:text-black hover:text-green-400 hover:border-green-400"
               >
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
+                <PrismicText field={ctaLink.label} />
+              </PrismicNextLink>
             ))}
-          </ul>
-        </nav>
+        </div>
+      </div>
+
+      <div className="block lg:hidden">
+      <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
       </div>
     </Bounded>
   );

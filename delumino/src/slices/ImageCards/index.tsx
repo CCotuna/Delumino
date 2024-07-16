@@ -17,7 +17,7 @@ const ImageCard = ({ card }: ImageCardProps) => {
   return (
     <li className="grid gap-8">
       {isFilled.image(image) && (
-        <div className="bg-gray-100">
+        <div className="">  
           <ConditionalWrap
             condition={isFilled.link(card.buttonLink)}
             wrap={({ children }) => (
@@ -48,7 +48,7 @@ type ImageCardsProps = SliceComponentProps<Content.ImageCardsSlice>;
 
 const ImageCards = ({ slice }: ImageCardsProps) => {
   return (
-    <Bounded as="section" className="bg-white">
+    <Bounded as="section" className="">
       <div className="grid gap-12">
         {isFilled.richText(slice.primary.heading) && (
           <Heading className="text-center">
