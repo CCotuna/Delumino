@@ -24,7 +24,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-28 text-white bg-red-500"
+      className="mt-28 text-white"
     >
       <div className="relative bg-black text-white min-h-screen flex">
         {prismic.isFilled.image(slice.primary.image) && (
@@ -77,7 +77,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
               <div className="mt-8 max-w-lg h-auto">
                 {selectedType && (
-                  <div className="bg-gray-800 bg-opacity-50 text-white p-4 rounded flex-col text-center">
+                  <div className="bg-brand-custom_gray bg-opacity-50 text-white p-4 rounded flex-col text-center">
                     <h2 className="text-2xl font-bold">{selectedType}</h2>
                     <p className="mt-2">
                       {selectedType === "Luminescent"

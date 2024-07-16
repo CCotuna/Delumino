@@ -49,8 +49,8 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
                 </button>
             </div>
             <div
-                className={`bg-green-400 w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "transform translate-x-0" : "transform -translate-x-full"}`}>
-                <button onClick={toggleNavBar} className="text-black text-2xl">
+                className={`bg-black w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "transform translate-x-0" : "transform -translate-x-full"}`}>
+                <button onClick={toggleNavBar} className="text-white text-2xl">
                     <IoClose />
                 </button>
                 <div className="flex flex-col pt-5">
@@ -58,7 +58,7 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
                         <button
                             key={prismic.asText(slice.primary.label)}
                             onClick={toggleNavBar}
-                            className="text-darkgreen uppercase font-semibold"
+                            className="text-white uppercase font-semibold"
                         >
                             <PrismicNextLink field={slice.primary.link}>
                                 <PrismicText field={slice.primary.label} />
