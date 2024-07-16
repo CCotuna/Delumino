@@ -235,6 +235,31 @@ export interface HeroSliceDefaultPrimaryCtaLinksItem {
 }
 
 /**
+ * Item in *Hero → Default → Primary → types*
+ */
+export interface HeroSliceDefaultPrimaryTypesItem {
+  /**
+   * label field in *Hero → Default → Primary → types*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.types[].label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * image field in *Hero → Default → Primary → types*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.types[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -277,6 +302,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * types field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.types[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  types: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryTypesItem>>;
 }
 
 /**
@@ -660,6 +695,7 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimaryCtaLinksItem,
+      HeroSliceDefaultPrimaryTypesItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
