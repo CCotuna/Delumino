@@ -28,7 +28,7 @@ const PhotosGrid = ({ slice }: PhotosGridProps): JSX.Element => {
                 <PrismicNextLink field={photo.image_link}>
                   <PrismicNextImage 
                     field={photo.photo} 
-                    className={`rounded-lg object-cover ${hasDescription ? 'h-[40rem]' : 'h-[50rem]'} w-full transition-transform duration-300 group-hover:scale-105`} 
+                    className={`rounded-lg object-cover ${hasDescription ? 'h-[40rem]' : 'h-[50rem]'} w-full md:transition-transform md:duration-300 md:group-hover:scale-105`} 
                   />
                 </PrismicNextLink>
 
