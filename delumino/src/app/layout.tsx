@@ -43,9 +43,10 @@ async function Header() {
   const navigation = await client.getSingle("navigation");
 
   return (
-    <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
-        <PrismicNextLink
+    <div className="fixed top-0 left-0 w-full bg-black z-50 shadow-sm">
+      <Bounded as="header" yPadding="sm">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
+          <PrismicNextLink
             href="/"
             className="hidden lg:flex items-center gap-x-4 text-xl uppercase font-extrabold tracking-tight"
           >
@@ -57,12 +58,12 @@ async function Header() {
               />
             )} */}
             <PrismicText field={settings.data.siteTitle} />
-        </PrismicNextLink>
-        <div className="hidden lg:flex items-center gap-6">
-          <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
-        </div>
-        <div className="hidden lg:flex items-center gap-6">
-        {Array.isArray(settings.data.cta_links) && settings.data.cta_links.map((ctaLink, index) => (
+          </PrismicNextLink>
+          <div className="hidden lg:flex items-center gap-6">
+            <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
+          </div>
+          <div className="hidden lg:flex items-center gap-6">
+            {Array.isArray(settings.data.cta_links) && settings.data.cta_links.map((ctaLink, index) => (
               <PrismicNextLink
                 key={index}
                 field={ctaLink.link}
@@ -71,12 +72,13 @@ async function Header() {
                 <PrismicText field={ctaLink.label} />
               </PrismicNextLink>
             ))}
+          </div>
         </div>
-      </div>
 
-      <div className="block lg:hidden">
-      <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
-      </div>
-    </Bounded>
+        <div className="block lg:hidden">
+          <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
+        </div>
+      </Bounded>
+    </div>
   );
 }

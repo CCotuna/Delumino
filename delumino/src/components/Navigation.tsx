@@ -24,13 +24,11 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
     return (
         <>
             <div className="flex lg:hidden justify-between items-center">
-
                 <button
                     className="text-white text-2xl sm:text-3xl block lg:hidden"
                     onClick={toggleNavBar}
                 >
                     <GiHamburgerMenu />
-
                 </button>
                 <PrismicNextLink
                     href="/"
@@ -46,18 +44,12 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
                     <PrismicText field={siteTitle} />
                 </PrismicNextLink>
                 <button
-                    className="text-white text-2xl sm:text-3xl block lg:hidden"
-
-                >
+                    className="text-white text-2xl sm:text-3xl block lg:hidden">
                     <IoChatbubblesSharp />
-
-
                 </button>
             </div>
             <div
-                className={`bg-green-400 w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "transform translate-x-0" : "transform -translate-x-full"
-                    }`}
-            >
+                className={`bg-green-400 w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "transform translate-x-0" : "transform -translate-x-full"}`}>
                 <button onClick={toggleNavBar} className="text-black text-2xl">
                     <IoClose />
                 </button>
