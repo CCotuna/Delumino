@@ -1,0 +1,53 @@
+{
+  "id": "photos_grid",
+  "type": "SharedSlice",
+  "name": "PhotosGrid",
+  "description": "PhotosGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "photos": {
+          "type": "Group",
+          "config": {
+            "label": "Photos",
+            "repeat": true,
+            "fields": {
+              "photo": {
+                "type": "Image",
+                "config": {
+                  "label": "Photo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "image_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Link",
+                  "placeholder": "",
+                  "select": "media"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

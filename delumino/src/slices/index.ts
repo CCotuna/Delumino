@@ -7,5 +7,6 @@ export const components = {
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),
   navigation_item: dynamic(() => import("./NavigationItem")),
+  photos_grid: dynamic(() => import("./PhotosGrid")),
   text: dynamic(() => import("./Text")),
 };
