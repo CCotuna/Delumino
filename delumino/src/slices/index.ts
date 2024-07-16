@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),
   navigation_item: dynamic(() => import("./NavigationItem")),

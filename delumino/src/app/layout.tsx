@@ -48,7 +48,7 @@ async function Header() {
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
           <PrismicNextLink
             href="/"
-            className="hidden lg:flex items-center gap-x-4 text-xl uppercase font-extrabold tracking-tight"
+            className="hidden lg:flex items-center gap-x-4 text-xl uppercase font-extrabold tracking-tight hover:text-green-400"
           >
             {/* {prismic.isFilled.image(settings.data.logo) && (
               <PrismicNextImage
