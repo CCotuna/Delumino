@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "featured_photos": {
+              "type": "SharedSlice"
+            },
             "product_design": {
               "type": "SharedSlice"
             },

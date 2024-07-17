@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  featured_photos: dynamic(() => import("./FeaturedPhotos")),
   features: dynamic(() => import("./Features")),
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),

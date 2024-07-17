@@ -39,6 +39,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FeaturedPhotosSlice
   | ProductDesignSlice
   | FeaturesSlice
   | PhotosGridSlice
@@ -211,6 +212,78 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Item in *FeaturedPhotos → Default → Primary → photos*
+ */
+export interface FeaturedPhotosSliceDefaultPrimaryPhotosItem {
+  /**
+   * Image field in *FeaturedPhotos → Default → Primary → photos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_photos.default.primary.photos[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *FeaturedPhotos → Default → Primary*
+ */
+export interface FeaturedPhotosSliceDefaultPrimary {
+  /**
+   * Title field in *FeaturedPhotos → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_photos.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * photos field in *FeaturedPhotos → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_photos.default.primary.photos[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  photos: prismic.GroupField<
+    Simplify<FeaturedPhotosSliceDefaultPrimaryPhotosItem>
+  >;
+}
+
+/**
+ * Default variation for FeaturedPhotos Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedPhotosSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedPhotosSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeaturedPhotos*
+ */
+type FeaturedPhotosSliceVariation = FeaturedPhotosSliceDefault;
+
+/**
+ * FeaturedPhotos Shared Slice
+ *
+ * - **API ID**: `featured_photos`
+ * - **Description**: FeaturedPhotos
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedPhotosSlice = prismic.SharedSlice<
+  "featured_photos",
+  FeaturedPhotosSliceVariation
+>;
 
 /**
  * Item in *Features → Default → Primary → Features*
@@ -1017,6 +1090,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataCtaLinksItem,
       AllDocumentTypes,
+      FeaturedPhotosSlice,
+      FeaturedPhotosSliceDefaultPrimaryPhotosItem,
+      FeaturedPhotosSliceDefaultPrimary,
+      FeaturedPhotosSliceVariation,
+      FeaturedPhotosSliceDefault,
       FeaturesSlice,
       FeaturesSliceDefaultPrimaryFeaturesItem,
       FeaturesSliceDefaultPrimary,
