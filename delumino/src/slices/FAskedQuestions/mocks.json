@@ -1,0 +1,87 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"contact_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"contact_label": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation tempor anim amet reprehenderit qui incididunt pariatur. Enim nisi enim irure aliquip est laboris consequat laboris reprehenderit nostrud dolore duis nulla. Tempor aliquip ad ipsum dolor magna officia culpa reprehenderit sit ex Lorem in incididunt ullamco."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur sunt occaecat nisi ad est eu."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis consectetur ea deserunt. Eiusmod est cillum non amet ad anim eu tempor consequat est incididunt commodo. Adipisicing sunt proident proident ad aute voluptate aute nostrud nisi excepteur exercitation."
+						}
+					}
+				]
+			},
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"q_answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Voluptate aliquip culpa ullamco ex aute cillum occaecat sit sint excepteur aliquip. Laboris magna mollit cupidatat esse quis reprehenderit id sit incididunt enim minim ut adipisicing sunt."
+											}
+										}
+									]
+								}
+							],
+							[
+								"q_title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Exercitation cillum fugiat tempor nostrud sunt eiusmod cupidatat officia deserunt sit."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

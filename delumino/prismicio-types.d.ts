@@ -39,6 +39,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FAskedQuestionsSlice
   | CarouselSlice
   | FeaturedPhotosSlice
   | ProductDesignSlice
@@ -282,6 +283,118 @@ type CarouselSliceVariation = CarouselSliceDefault;
 export type CarouselSlice = prismic.SharedSlice<
   "carousel",
   CarouselSliceVariation
+>;
+
+/**
+ * Item in *FAskedQuestions → Default → Primary → items*
+ */
+export interface FAskedQuestionsSliceDefaultPrimaryItemsItem {
+  /**
+   * Q Title field in *FAskedQuestions → Default → Primary → items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.items[].q_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  q_title: prismic.RichTextField;
+
+  /**
+   * Q Answer field in *FAskedQuestions → Default → Primary → items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.items[].q_answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  q_answer: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FAskedQuestions → Default → Primary*
+ */
+export interface FAskedQuestionsSliceDefaultPrimary {
+  /**
+   * Contact Link field in *FAskedQuestions → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.contact_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  contact_link: prismic.LinkField;
+
+  /**
+   * Contact Label field in *FAskedQuestions → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.contact_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_label: prismic.RichTextField;
+
+  /**
+   * Title field in *FAskedQuestions → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FAskedQuestions → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * items field in *FAskedQuestions → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: f_asked_questions.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<FAskedQuestionsSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Default variation for FAskedQuestions Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FAskedQuestionsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FAskedQuestionsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FAskedQuestions*
+ */
+type FAskedQuestionsSliceVariation = FAskedQuestionsSliceDefault;
+
+/**
+ * FAskedQuestions Shared Slice
+ *
+ * - **API ID**: `f_asked_questions`
+ * - **Description**: FAskedQuestions
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FAskedQuestionsSlice = prismic.SharedSlice<
+  "f_asked_questions",
+  FAskedQuestionsSliceVariation
 >;
 
 /**
@@ -1166,6 +1279,11 @@ declare module "@prismicio/client" {
       CarouselSliceDefaultPrimary,
       CarouselSliceVariation,
       CarouselSliceDefault,
+      FAskedQuestionsSlice,
+      FAskedQuestionsSliceDefaultPrimaryItemsItem,
+      FAskedQuestionsSliceDefaultPrimary,
+      FAskedQuestionsSliceVariation,
+      FAskedQuestionsSliceDefault,
       FeaturedPhotosSlice,
       FeaturedPhotosSliceDefaultPrimaryPhotosItem,
       FeaturedPhotosSliceDefaultPrimary,
