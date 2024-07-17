@@ -39,6 +39,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ProductDesignSlice
   | FeaturesSlice
   | PhotosGridSlice
   | HeroSlice
@@ -778,6 +779,155 @@ export type PhotosGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ProductDesign → Default → Primary → Left Section*
+ */
+export interface ProductDesignSliceDefaultPrimaryLeftSectionItem {
+  /**
+   * Icon field in *ProductDesign → Default → Primary → Left Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.left_section[].icon
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  icon: prismic.RichTextField;
+
+  /**
+   * Title field in *ProductDesign → Default → Primary → Left Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.left_section[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ProductDesign → Default → Primary → Left Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.left_section[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Item in *ProductDesign → Default → Primary → Right Section*
+ */
+export interface ProductDesignSliceDefaultPrimaryRightSectionItem {
+  /**
+   * Icon field in *ProductDesign → Default → Primary → Right Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.right_section[].icon
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  icon: prismic.RichTextField;
+
+  /**
+   * Title field in *ProductDesign → Default → Primary → Right Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.right_section[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ProductDesign → Default → Primary → Right Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.right_section[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ProductDesign → Default → Primary*
+ */
+export interface ProductDesignSliceDefaultPrimary {
+  /**
+   * Title field in *ProductDesign → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image field in *ProductDesign → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Left Section field in *ProductDesign → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.left_section[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  left_section: prismic.GroupField<
+    Simplify<ProductDesignSliceDefaultPrimaryLeftSectionItem>
+  >;
+
+  /**
+   * Right Section field in *ProductDesign → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_design.default.primary.right_section[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  right_section: prismic.GroupField<
+    Simplify<ProductDesignSliceDefaultPrimaryRightSectionItem>
+  >;
+}
+
+/**
+ * Default variation for ProductDesign Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductDesignSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductDesignSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductDesign*
+ */
+type ProductDesignSliceVariation = ProductDesignSliceDefault;
+
+/**
+ * ProductDesign Shared Slice
+ *
+ * - **API ID**: `product_design`
+ * - **Description**: ProductDesign
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductDesignSlice = prismic.SharedSlice<
+  "product_design",
+  ProductDesignSliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -899,6 +1049,12 @@ declare module "@prismicio/client" {
       PhotosGridSliceDefaultPrimary,
       PhotosGridSliceVariation,
       PhotosGridSliceDefault,
+      ProductDesignSlice,
+      ProductDesignSliceDefaultPrimaryLeftSectionItem,
+      ProductDesignSliceDefaultPrimaryRightSectionItem,
+      ProductDesignSliceDefaultPrimary,
+      ProductDesignSliceVariation,
+      ProductDesignSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,

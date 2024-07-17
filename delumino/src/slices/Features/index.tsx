@@ -25,7 +25,7 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-1">
           {features[0] && ( 
-            <div className="bg-brand-custom_gray text-white rounded-lg p-6 shadow-lg h-full">
+            <div className="bg-brand-custom_gray hover:bg-gray-900 text-white rounded-lg p-6 shadow-lg h-full">
               <h3 className="text-2xl font-semibold mb-2">
                 <PrismicText field={features[0].title} />
               </h3>
@@ -39,7 +39,7 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
         <div className="flex flex-col space-y-4 col-span-1">
           {features.slice(1, 3).map((card, index) => (
             card && ( 
-              <div key={index} className="bg-brand-custom_gray text-white rounded-lg p-4 shadow-lg h-full">
+              <div key={index} className="bg-brand-custom_gray hover:bg-gray-900 text-white rounded-lg p-4 shadow-lg h-full">
                 <h3 className="text-xl font-semibold mb-1">
                   <PrismicText field={card.title} />
                 </h3>
@@ -53,7 +53,7 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
 
         <div className="col-span-1">
           {features[3] && ( 
-            <div className="bg-brand-custom_gray text-white rounded-lg p-6 shadow-lg h-full">
+            <div className="bg-brand-custom_gray hover:bg-gray-900 text-white rounded-lg p-6 shadow-lg h-full">
               <h3 className="text-2xl font-semibold mb-2">
                 <PrismicText field={features[3].title} />
               </h3>

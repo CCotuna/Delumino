@@ -9,5 +9,6 @@ export const components = {
   image_cards: dynamic(() => import("./ImageCards")),
   navigation_item: dynamic(() => import("./NavigationItem")),
   photos_grid: dynamic(() => import("./PhotosGrid")),
+  product_design: dynamic(() => import("./ProductDesign")),
   text: dynamic(() => import("./Text")),
 };
