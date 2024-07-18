@@ -26,7 +26,7 @@ const ProductDesign = ({ slice }: ProductDesignProps): JSX.Element => {
           <div className="flex flex-col text-center md:text-right">
               {slice.primary.left_section.map((card, index) => (
                 <div key={index} className="text-white rounded-lg p-4 shadow-lg h-full">
-                  
+                                    
                   <h3 className="text-xl font-semibold mb-1">
                     <PrismicText field={card.title} />
                   </h3>
