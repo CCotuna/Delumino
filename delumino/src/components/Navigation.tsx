@@ -1,26 +1,26 @@
 "use client"
-import type { ReactNode } from "react"
-import React, { useState } from "react"
+import type { ReactNode } from "react";
+import React, { useState } from "react";
 
-import { PrismicRichText } from "@/components/PrismicRichText"
+import { PrismicRichText } from "@/components/PrismicRichText";
 
-import { PrismicNextLink } from "@prismicio/next"
-import { PrismicText } from "@prismicio/react"
-import * as prismic from "@prismicio/client"
+import { PrismicNextLink } from "@prismicio/next";
+import { PrismicText } from "@prismicio/react";
+import * as prismic from "@prismicio/client";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { IoChatbubblesSharp } from "react-icons/io5";
+import { PrismicNextImage } from "@prismicio/next";
 
+export function Navigation({ navigation, siteTitle, logo }: { navigation: any, siteTitle: prismic.TitleField; logo?: prismic.ImageField }) {
 
-
-export function Navigation({ navigation, siteTitle }: { navigation: any, siteTitle: prismic.TitleField; }) {
-
-    const [showNav, setShowNav] = useState(false)
+    const [showNav, setShowNav] = useState(false);
 
     const toggleNavBar = () => {
-        setShowNav(!showNav)
-    }
+        setShowNav(!showNav);
+    };
+
     return (
         <>
             <div className="flex lg:hidden justify-between items-center">
@@ -32,15 +32,15 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
                 </button>
                 <PrismicNextLink
                     href="/"
-                    className="flex items-center gap-x-4 text-3xl uppercase font-extrabold tracking-tight"
+                    className="flex items-center gap-x-2 text-3xl uppercase font-extrabold tracking-tight"
                 >
-                    {/* {prismic.isFilled.image(settings.data.logo) && (
-              <PrismicNextImage
-                field={settings.data.logo}
-                fill={false}
-                className="w-32 h-auto"
-              />
-            )} */}
+                    {logo && prismic.isFilled.image(logo) && (
+                        <PrismicNextImage
+                            field={logo}
+                            fill={false}
+                            className="w-8 h-auto"
+                        />
+                    )}
                     <PrismicText field={siteTitle} />
                 </PrismicNextLink>
                 <button
@@ -50,9 +50,24 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
             </div>
             <div
                 className={`bg-black w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "transform translate-x-0" : "transform -translate-x-full"}`}>
+                  <div className="flex gap-x-10 items-center">
+                  <PrismicNextLink
+                    href="/"
+                    className="flex items-center gap-x-2 text-3xl uppercase font-extrabold tracking-tight"
+                >
+                    {logo && prismic.isFilled.image(logo) && (
+                        <PrismicNextImage
+                            field={logo}
+                            fill={false}
+                            className="w-10 h-auto"
+                        />
+                    )}
+                    <PrismicText field={siteTitle} />
+                </PrismicNextLink>
                 <button onClick={toggleNavBar} className="text-white text-2xl">
                     <IoClose />
                 </button>
+                  </div>
                 <div className="flex flex-col pt-5">
                     {navigation.data.slices.map((slice: { primary: { label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; }; }) => (
                         <button
@@ -100,5 +115,5 @@ export function Navigation({ navigation, siteTitle }: { navigation: any, siteTit
                 </ul>
             </nav>
         </>
-    )
+    );
 }

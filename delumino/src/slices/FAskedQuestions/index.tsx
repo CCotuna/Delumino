@@ -17,7 +17,7 @@ const FAskedQuestions = ({ slice }: FAskedQuestionsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative w-full px-6 pt-10 pb-8 mb-10 mt-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-2xl sm:rounded-lg sm:px-10"
+      className="relative w-full px-6 pt-10 pb-8 mb-10 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-2xl sm:rounded-lg sm:px-10"
     >
        <div className="relative mx-auto px-5">
           <div className="absolute top-5 right-5 hidden sm:block">

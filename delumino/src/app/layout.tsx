@@ -16,7 +16,6 @@ import { Bounded } from "@/components/Bounded";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
-
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -45,29 +44,29 @@ async function Header() {
   return (
     <div className="fixed top-0 left-0 w-full bg-black z-50 shadow-sm">
       <Bounded as="header" yPadding="sm">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 leading-none">
           <PrismicNextLink
             href="/"
-            className="hidden lg:flex items-center gap-x-4 text-xl uppercase font-extrabold tracking-tight hover:text-green-400"
+            className="hidden lg:flex items-center text-4xl gap-x-2 uppercase font-extrabold tracking-tight hover:text-green-400"
           >
-            {/* {prismic.isFilled.image(settings.data.logo) && (
+            {prismic.isFilled.image(settings.data.logo) && (
               <PrismicNextImage
                 field={settings.data.logo}
                 fill={false}
-                className="w-32 h-auto"
+                className="w-8 h-auto"
               />
-            )} */}
+            )}
             <PrismicText field={settings.data.siteTitle} />
           </PrismicNextLink>
           <div className="hidden lg:flex items-center gap-6">
-            <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
+            <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} logo={settings.data.logo} />
           </div>
           <div className="hidden lg:flex items-center gap-6">
             {Array.isArray(settings.data.cta_links) && settings.data.cta_links.map((ctaLink, index) => (
               <PrismicNextLink
                 key={index}
                 field={ctaLink.link}
-                className="font-semibold first:-ms-5 px-4 py-2 border rounded-full last:bg-white last:text-black hover:text-green-400 hover:border-green-400"
+                className="font-semibold px-4 py-2 border rounded-full last:bg-white last:text-black hover:text-green-400 hover:border-green-400"
               >
                 <PrismicText field={ctaLink.label} />
               </PrismicNextLink>
@@ -76,7 +75,7 @@ async function Header() {
         </div>
 
         <div className="block lg:hidden">
-          <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} />
+          <Navigation navigation={navigation} siteTitle={settings.data.siteTitle} logo={settings.data.logo} />
         </div>
       </Bounded>
     </div>
