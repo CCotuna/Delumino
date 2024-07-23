@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await client.getByUID("page", "home").catch(() => notFound());
 
   return {
-    title: asText(page.data.title),
+    title: asText(page.data.title) + " - Delumino",
     description: page.data.meta_description,
     openGraph: {
       title: page.data.meta_title ?? undefined,
