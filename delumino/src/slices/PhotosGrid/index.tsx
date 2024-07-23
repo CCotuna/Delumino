@@ -19,6 +19,9 @@ const PhotosGrid = ({ slice }: PhotosGridProps): JSX.Element => {
       className="mt-20 mb-20"
     >
       <div className="max-w-5xl mx-auto p-4">
+      <h1 className="text-2xl sm:text-3xl lg:text-5xl text-center font-bold leading-tight uppercase mb-10">
+              Our Collection
+            </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {slice.primary.photos.map((photo, index) => {
             const hasDescription = prismic.isFilled.richText(photo.description);
