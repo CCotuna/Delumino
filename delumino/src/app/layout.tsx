@@ -63,7 +63,7 @@ async function Header() {
           </div>
           <div className="hidden lg:flex items-center gap-6">
             {Array.isArray(settings.data.cta_links) && settings.data.cta_links.map((ctaLink, index) => (
-              <PrismicNextLink
+              <PrismicNextLink  
                 key={index}
                 field={ctaLink.link}
                 className="font-semibold px-4 py-2 border rounded-full last:bg-white last:text-black hover:text-green-400 hover:border-green-400"
