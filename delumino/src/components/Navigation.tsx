@@ -76,31 +76,35 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                     </button>
                 </div>
                 <div className="flex flex-col pt-5">
-                    {navigation.data.slices.map((slice: { primary: {
-                        menu_items: any; label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; 
-}; }) => (
-                        <div>
+                    {navigation.data.slices.map((slice: { primary: { menu_items: any; label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; }; }) => (
+                        <div key={prismic.asText(slice.primary.label)}>
                             <button
-                            key={prismic.asText(slice.primary.label)}
-                            onClick={toggleNavBar}
-                            className="text-white uppercase font-semibold"
-                        >
-                            <PrismicNextLink field={slice.primary.link}>
-                                <PrismicText field={slice.primary.label} />
-                            </PrismicNextLink>
-                        </button>
-
-                        {slice.primary.menu_items.length > 0 && (
-                            <ul>
-                                {slice.primary.menu_items.map((item: { link: prismic.LinkField | null | undefined; label: prismic.RichTextField | null | undefined; }) => (
-                                    <li key={prismic.asText(item.label)}>
-                                        <PrismicNextLink field={item.link}>
-                                            <PrismicText field={item.label} />
-                                        </PrismicNextLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                                onClick={() => {
+                                    const label = prismic.asText(slice.primary.label) || '';
+                                    handleMenuClick(label);
+                                }}
+                                className="text-white uppercase font-semibold flex items-center gap-x-2"
+                            >
+                                <PrismicNextLink field={slice.primary.link}>
+                                    <PrismicText field={slice.primary.label} />
+                                </PrismicNextLink>
+                                {slice.primary.menu_items.length > 0 && (
+                                    <AiFillCaretDown
+                                        className={`text-white transition-transform duration-300 ${activeMenu === prismic.asText(slice.primary.label) ? 'rotate-180' : 'rotate-0'}`}
+                                    />
+                                )}
+                            </button>
+                            {activeMenu === prismic.asText(slice.primary.label) && slice.primary.menu_items.length > 0 && (
+                                <ul className="mt-2 ml-4">
+                                    {slice.primary.menu_items.map((item: { link: prismic.LinkField | null | undefined; label: prismic.RichTextField | null | undefined; }) => (
+                                        <li key={prismic.asText(item.label)} className="text-white">
+                                            <PrismicNextLink field={item.link}>
+                                                <PrismicText field={item.label} />
+                                            </PrismicNextLink>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -115,14 +119,11 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                         >
                             <button
                                 onClick={() => {
-                                    const label = prismic.asText(slice.primary.label);
-                                    if (label) {
-                                        handleMenuClick(label);
-                                    }
+                                    const label = prismic.asText(slice.primary.label) || '';
+                                    handleMenuClick(label);
                                 }}
                                 className="flex items-center gap-x-2 font-medium text-white uppercase py-3 border-b-2 border-transparent transition duration-100 ease-in-out hover:border-green-400 hover:text-green-400"
                             >
-
                                 {slice.primary.menu_items.length == 0 && (
                                     <PrismicNextLink field={slice.primary.link} ><PrismicText field={slice.primary.label} /></PrismicNextLink>
                                 )}
@@ -130,12 +131,9 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                     <div className="flex gap-1">
                                         <PrismicText field={slice.primary.label} />
                                         <AiFillCaretDown
-                                        className={`text-white transition-transform duration-300 ${
-                                            activeMenu === prismic.asText(slice.primary.label) ? 'rotate-180' : 'rotate-0'
-                                        }`}
-                                    />
+                                            className={`text-white transition-transform duration-300 ${activeMenu === prismic.asText(slice.primary.label) ? 'rotate-180' : 'rotate-0'}`}
+                                        />
                                     </div>
-                                    
                                 )}
                             </button>
                         </li>
