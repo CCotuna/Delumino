@@ -57,27 +57,30 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
 
             <div
                 className={`bg-black w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "translate-x-0" : "-translate-x-full"}`}>
-                <div className="flex gap-x-10 items-center">
+                <div className="flex gap-x-10 items-center justify-between w-full px-4">
                     <PrismicNextLink
                         href="/"
-                        className="flex items-center gap-x-2 text-3xl uppercase font-extrabold tracking-tight"
+                        className="flex items-center text-2xl uppercase font-extrabold tracking-tight text-white"
                     >
                         {logo && prismic.isFilled.image(logo) && (
                             <PrismicNextImage
                                 field={logo}
                                 fill={false}
-                                className="w-10 h-auto"
+                                className="w-7 h-auto"
                             />
                         )}
                         <PrismicText field={siteTitle} />
                     </PrismicNextLink>
-                    <button onClick={toggleNavBar} className="text-white text-2xl">
+                    <button onClick={toggleNavBar} className="text-white font-extrabold text-2xl">
                         <IoClose />
                     </button>
                 </div>
                 <div className="flex flex-col pt-5">
-                    {navigation.data.slices.map((slice: { primary: { label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; }; }) => (
-                        <button
+                    {navigation.data.slices.map((slice: { primary: {
+                        menu_items: any; label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; 
+}; }) => (
+                        <div>
+                            <button
                             key={prismic.asText(slice.primary.label)}
                             onClick={toggleNavBar}
                             className="text-white uppercase font-semibold"
@@ -86,6 +89,19 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 <PrismicText field={slice.primary.label} />
                             </PrismicNextLink>
                         </button>
+
+                        {slice.primary.menu_items.length > 0 && (
+                            <ul>
+                                {slice.primary.menu_items.map((item: { link: prismic.LinkField | null | undefined; label: prismic.RichTextField | null | undefined; }) => (
+                                    <li key={prismic.asText(item.label)}>
+                                        <PrismicNextLink field={item.link}>
+                                            <PrismicText field={item.label} />
+                                        </PrismicNextLink>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        </div>
                     ))}
                 </div>
             </div>
@@ -106,13 +122,20 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 }}
                                 className="flex items-center gap-x-2 font-medium text-white uppercase py-3 border-b-2 border-transparent transition duration-100 ease-in-out hover:border-green-400 hover:text-green-400"
                             >
-                                <PrismicText field={slice.primary.label} />
+
+                                {slice.primary.menu_items.length == 0 && (
+                                    <PrismicNextLink field={slice.primary.link} ><PrismicText field={slice.primary.label} /></PrismicNextLink>
+                                )}
                                 {slice.primary.menu_items.length > 0 && (
-                                    <AiFillCaretDown
+                                    <div className="flex gap-1">
+                                        <PrismicText field={slice.primary.label} />
+                                        <AiFillCaretDown
                                         className={`text-white transition-transform duration-300 ${
                                             activeMenu === prismic.asText(slice.primary.label) ? 'rotate-180' : 'rotate-0'
                                         }`}
                                     />
+                                    </div>
+                                    
                                 )}
                             </button>
                         </li>
