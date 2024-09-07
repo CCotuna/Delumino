@@ -55,9 +55,11 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                 </button>
             </div>
 
+            {/* Mobile Navigation */}
             <div
-                className={`bg-black w-full min-h-screen fixed top-0 left-0 flex flex-col items-center pt-10 transition-transform duration-300 ease-in-out ${showNav ? "translate-x-0" : "-translate-x-full"}`}>
-                <div className="flex gap-x-10 items-center justify-between w-full px-4">
+                className={`bg-black w-full h-screen fixed top-0 left-0 flex flex-col pt-10 transition-transform duration-300 ease-in-out z-50 overflow-hidden ${showNav ? "translate-x-0" : "-translate-x-full"}`}
+            >
+                <div className="flex justify-between items-center w-full px-4">
                     <PrismicNextLink
                         href="/"
                         className="flex items-center text-2xl uppercase font-extrabold tracking-tight text-white"
@@ -71,21 +73,22 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                         )}
                         <PrismicText field={siteTitle} />
                     </PrismicNextLink>
-                    <button onClick={toggleNavBar} className="text-white font-extrabold text-2xl">
+                    <button onClick={toggleNavBar} className="text-white font-extrabold text-3xl">
                         <IoClose />
                     </button>
                 </div>
-                <div className="flex flex-col pt-5">
+
+                <div className="flex flex-col items-start w-full mt-5 px-4 overflow-y-auto">
                     {navigation.data.slices.map((slice: { primary: { menu_items: any; label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; }; }) => (
-                        <div key={prismic.asText(slice.primary.label)}>
+                        <div key={prismic.asText(slice.primary.label)} className="w-full">
                             <button
                                 onClick={() => {
                                     const label = prismic.asText(slice.primary.label) || '';
                                     handleMenuClick(label);
                                 }}
-                                className="text-white uppercase font-semibold flex items-center gap-x-2"
+                                className="text-white uppercase font-semibold flex items-center gap-x-2 py-2 text-lg w-full text-left"
                             >
-                                <PrismicNextLink field={slice.primary.link}>
+                                <PrismicNextLink field={slice.primary.link} className="w-full">
                                     <PrismicText field={slice.primary.label} />
                                 </PrismicNextLink>
                                 {slice.primary.menu_items.length > 0 && (
@@ -95,10 +98,10 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 )}
                             </button>
                             {activeMenu === prismic.asText(slice.primary.label) && slice.primary.menu_items.length > 0 && (
-                                <ul className="mt-2 ml-4">
+                                <ul className="ml-4 mt-2 max-h-40 overflow-y-auto">
                                     {slice.primary.menu_items.map((item: { link: prismic.LinkField | null | undefined; label: prismic.RichTextField | null | undefined; }) => (
-                                        <li key={prismic.asText(item.label)} className="text-white">
-                                            <PrismicNextLink field={item.link}>
+                                        <li key={prismic.asText(item.label)} className="text-white py-1 text-sm">
+                                            <PrismicNextLink field={item.link} className="hover:text-green-500">
                                                 <PrismicText field={item.label} />
                                             </PrismicNextLink>
                                         </li>
@@ -110,6 +113,7 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                 </div>
             </div>
 
+            {/* Desktop navigation */}
             <nav className="hidden lg:flex lg:items-center w-full relative">
                 <ul className="flex gap-6 md:gap-10 w-full">
                     {navigation.data.slices.map((slice: { primary: { label: prismic.RichTextField | null | undefined; link: prismic.LinkField | null | undefined; menu_items: { link: prismic.LinkField | null | undefined; label: prismic.RichTextField | null | undefined; }[]; }; }) => (
