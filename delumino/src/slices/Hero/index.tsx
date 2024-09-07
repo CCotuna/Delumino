@@ -83,7 +83,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                       {selectedType === "Luminescent"
                         ? "Luminescent items glow with an inner light, creating captivating visuals."
                         : selectedType === "Green light"
-                          ? "Green Light offers a soothing ambiance, perfect for relaxation."
+                          ? "Green Light offers a soothing ambiance, perfect for relaxation ------."
                           : selectedType === "Red light"
                             ? "Red light adds a touch of warmth to any room, creating a cozy atmosphere."
                             : "Select an option to see more details."}

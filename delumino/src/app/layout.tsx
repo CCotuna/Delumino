@@ -15,6 +15,8 @@ import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,6 +33,7 @@ export default async function RootLayout({
         <Header />
         {children}
         <PrismicPreview repositoryName={repositoryName} />
+        <Footer />
       </body>
     </html>
   );
@@ -63,7 +66,7 @@ async function Header() {
           </div>
           <div className="hidden lg:flex items-center gap-6">
             {Array.isArray(settings.data.cta_links) && settings.data.cta_links.map((ctaLink, index) => (
-              <PrismicNextLink  
+              <PrismicNextLink
                 key={index}
                 field={ctaLink.link}
                 className="font-semibold px-4 py-2 border rounded-full last:bg-white last:text-black hover:text-green-400 hover:border-green-400"
@@ -79,5 +82,72 @@ async function Header() {
         </div>
       </Bounded>
     </div>
+  );
+}
+async function Footer() {
+  const currentYear = new Date().getFullYear();
+  const client = createClient();
+  const settings = await client.getSingle("settings");
+
+  return (
+    <footer className=" text-gray-300 pb-12">
+      <div className="container mx-auto flex flex-col items-center justify-center space-y-8">
+
+        {/* Logo and Company Info */}
+        <div className="flex flex-col items-center space-y-4">
+          {settings.data.logo && prismic.isFilled.image(settings.data.logo) && (
+            <PrismicNextImage
+              field={settings.data.logo}
+              fill={false}
+              className="w-16 h-auto mb-2"
+            />
+          )}
+          <p className="text-xl font-bold uppercase text-white">          
+            <PrismicText field={settings.data.siteTitle} />
+          </p>
+          <p className="text-lg text-gray-400 text-center">Building better solutions for the modern world.</p>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="flex flex-wrap justify-center gap-4 text-center text-lg">
+          <PrismicNextLink href="/" className=" hover:text-green-400 transition duration-200">Home</PrismicNextLink>
+          <PrismicNextLink href="/about" className=" hover:text-green-400 transition duration-200">About Us</PrismicNextLink>
+          <PrismicNextLink href="/products" className=" hover:text-green-400 transition duration-200">Products</PrismicNextLink>
+          <PrismicNextLink href="/services" className=" hover:text-green-400 transition duration-200">Services</PrismicNextLink>
+          <PrismicNextLink href="/contact" className=" hover:text-green-400 transition duration-200">Contact</PrismicNextLink>
+          <PrismicNextLink href="/privacy" className=" hover:text-green-400 transition duration-200">Privacy Policy</PrismicNextLink>
+          <PrismicNextLink href="/terms" className=" hover:text-green-400 transition duration-200">Terms & Conditions</PrismicNextLink>
+          <PrismicNextLink href="/faq" className=" hover:text-green-400 transition duration-200">FAQ</PrismicNextLink>
+        </nav>
+
+        {/* Social Links */}
+        <div className="flex flex-col items-center space-y-4">
+          <h4 className="text-lg font-semibold text-white">Connect with Us</h4>
+          <div className="flex gap-6 text-3xl">
+            <PrismicNextLink href="https://www.facebook.com" target="_blank" className="text-white hover:text-green-400 transition duration-200">
+              <FaFacebookF />
+            </PrismicNextLink>
+            <PrismicNextLink href="https://www.instagram.com" target="_blank" className="text-white hover:text-green-400 transition duration-200">
+              <FaInstagram />
+            </PrismicNextLink>
+            <PrismicNextLink href="https://www.twitter.com" target="_blank" className="text-white hover:text-green-400 transition duration-200">
+              <FaTwitter />
+            </PrismicNextLink>
+            <PrismicNextLink href="https://wa.me/1234567890" target="_blank" className="text-white hover:text-green-400 transition duration-200">
+              <FaWhatsapp />
+            </PrismicNextLink>
+          </div>
+          <div className="flex items-center gap-2 text-md text-gray-300 hover:text-green-400 transition duration-200">
+            <FaWhatsapp className="text-xl" />
+            <span>+1 (234) 567-8900</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom Section */}
+      <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+        <p>&copy; {currentYear} <span className="text-white"><PrismicText field={settings.data.siteTitle} /></span>. All rights reserved.</p>
+      </div>
+    </footer>
   );
 }
