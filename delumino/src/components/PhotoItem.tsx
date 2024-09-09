@@ -44,9 +44,21 @@ const PhotoItem = ({ photo, photo_luminescent, image_link, description }: PhotoI
       {photo_luminescent && (
         <button
           onClick={() => setIsLuminescent((prev) => !prev)} // Toggle the image
-          className=" absolute top-2 right-2 bg-white text-black px-2 py-1 rounded-md text-xs hover:bg-gray-300 transition"
+          className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-lg flex items-center justify-center"
+          aria-label="Toggle luminescent view"
         >
-          {isLuminescent ? "Show Base" : "Show Luminescent"}
+          <div className="relative flex items-center justify-center p-2 bg-gradient-to-r from-white to-green-300 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className={`bi bi-lightbulb-fill transition-transform ${isLuminescent ? "text-green-500" : "text-gray-500"}`}
+              viewBox="0 0 16 16"
+            >
+              <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5"/>
+            </svg>
+          </div>
         </button>
       )}
 
