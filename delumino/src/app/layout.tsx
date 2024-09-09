@@ -102,7 +102,7 @@ async function Footer() {
               className="w-16 h-auto mb-2"
             />
           )}
-          <p className="text-xl font-bold uppercase text-white">          
+          <p className="text-xl font-bold uppercase text-white">
             <PrismicText field={settings.data.siteTitle} />
           </p>
           <p className="text-lg text-gray-400 text-center">Building better solutions for the modern world.</p>
@@ -141,6 +141,25 @@ async function Footer() {
             <FaWhatsapp className="text-xl" />
             <span>+1 (234) 567-8900</span>
           </div>
+        </div>
+
+        {/* Anpc SAL & SOL */}
+        <div className="flex items-center space-x-5">
+          {settings.data.anpc_sal && settings.data.anpc_sal_link && prismic.isFilled.image(settings.data.anpc_sal) && (
+            <PrismicNextLink field={settings.data.anpc_sol_link}>
+              <PrismicNextImage
+                field={settings.data.anpc_sal}
+                fill={false}
+                className="w-52 h-auto mb-2"
+              />
+            </PrismicNextLink>
+          )}
+
+          {settings.data.anpc_sol && settings.data.anpc_sol_link && prismic.isFilled.image(settings.data.anpc_sol) && (
+            <PrismicNextLink field={settings.data.anpc_sol_link}>
+              <PrismicNextImage field={settings.data.anpc_sol} fill={false} className="w-52 h-auto mb-2" />
+            </PrismicNextLink>
+          )}
         </div>
       </div>
 

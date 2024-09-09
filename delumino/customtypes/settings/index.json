@@ -48,6 +48,40 @@
             }
           }
         }
+      },
+      "anpc_sol": {
+        "type": "Image",
+        "config": {
+          "label": "anpc sol",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "anpc_sol_link": {
+        "type": "Link",
+        "config": {
+          "label": "anpc sol link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "anpc_sal": {
+        "type": "Image",
+        "config": {
+          "label": "anpc sal",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "anpc_sal_link": {
+        "type": "Link",
+        "config": {
+          "label": "anpc sal link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
       }
     }
   }

@@ -210,6 +210,50 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   cta_links: prismic.GroupField<Simplify<SettingsDocumentDataCtaLinksItem>>;
+
+  /**
+   * anpc sol field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.anpc_sol
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  anpc_sol: prismic.ImageField<never>;
+
+  /**
+   * anpc sol link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.anpc_sol_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  anpc_sol_link: prismic.LinkField;
+
+  /**
+   * anpc sal field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.anpc_sal
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  anpc_sal: prismic.ImageField<never>;
+
+  /**
+   * anpc sal link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.anpc_sal_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  anpc_sal_link: prismic.LinkField;
 }
 
 /**

@@ -17,6 +17,7 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
 
     const toggleNavBar = () => {
         setShowNav(!showNav);
+        setActiveMenu(null);
     };
 
     const handleMenuClick = (label: string) => {
