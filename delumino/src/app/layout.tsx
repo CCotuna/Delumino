@@ -10,6 +10,7 @@ import { asText } from "@prismicio/client";
 import * as prismic from "@prismicio/client";
 
 import { Navigation } from "@/components/Navigation";
+import ScrollTopButton from "@/components/ScrollTopButton";
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
@@ -32,6 +33,7 @@ export default async function RootLayout({
       <body className="overflow-x-hidden antialiased bg-black text-white">
         <Header />
         {children}
+        <ScrollTopButton />
         <PrismicPreview repositoryName={repositoryName} />
         <Footer />
       </body>
