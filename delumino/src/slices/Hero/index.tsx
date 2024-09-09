@@ -38,9 +38,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
         <div className="container mx-auto px-4 flex flex-col lg:flex-row lg:justify-center relative z-20 lg:mt-10 bg-gray-900 lg:bg-transparent bg-opacity-50 lg:bg-opacity-0">
           <div className="max-w-lg lg:max-w-xl mt-10">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
-              Where Light <br /> meets Art
-            </h1>
+            <h1 className="text-5xl sm:text-6xl font-bold leading-tight 
+               text-white block md:hidden">Where Light <br /> meets Art</h1>
+          <h1 className="text-7xl font-bold leading-tight 
+               bg-gradient-to-r from-white via-green-500 to-green-800 
+               bg-clip-text text-transparent hidden md:block">
+    Where Light <br /> meets Art
+  </h1>
             <p className="mt-4 text-lg lg:text-xl">
               <PrismicText field={slice.primary.subtitle} />
             </p>
