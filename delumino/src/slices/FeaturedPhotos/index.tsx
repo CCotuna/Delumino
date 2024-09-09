@@ -1,7 +1,9 @@
+"use client"
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import PhotoItem from "@/components/PhotoItem";
 
 /**
  * Props for `FeaturedPhotos`.
@@ -27,10 +29,11 @@ const FeaturedPhotos = ({ slice }: FeaturedPhotosProps): JSX.Element => {
           {slice.primary.photos.map((photo, index) => {
             return (
               <div key={index} className="relative group">
-                <PrismicNextImage 
+                <PhotoItem photo={photo.image} photo_luminescent={photo.photo_luminescent} />
+                {/* <PrismicNextImage 
                   field={photo.image} 
                   className="rounded-lg object-cover h-[40rem] w-full md:transition-transform md:duration-300 md:group-hover:scale-105" 
-                />
+                /> */}
               </div>
             );
           })}

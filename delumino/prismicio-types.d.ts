@@ -473,6 +473,16 @@ export interface FeaturedPhotosSliceDefaultPrimaryPhotosItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Photo Luminescent field in *FeaturedPhotos → Default → Primary → photos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_photos.default.primary.photos[].photo_luminescent
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_luminescent: prismic.ImageField<never>;
 }
 
 /**

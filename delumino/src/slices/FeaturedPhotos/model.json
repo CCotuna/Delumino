@@ -34,6 +34,14 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "photo_luminescent": {
+                "type": "Image",
+                "config": {
+                  "label": "Photo Luminescent",
+                  "constraint": {},
+                  "thumbnails": []
+                }
               }
             }
           }
