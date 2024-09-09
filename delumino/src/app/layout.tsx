@@ -135,13 +135,13 @@ async function Footer() {
             <PrismicNextLink href="https://www.twitter.com" target="_blank" className="text-white hover:text-green-400 transition duration-200">
               <FaTwitter />
             </PrismicNextLink>
-            <PrismicNextLink href="https://wa.me/1234567890" target="_blank" className="text-white hover:text-green-400 transition duration-200">
+            <PrismicNextLink href="https://wa.me/+447492096576" target="_blank" className="text-white hover:text-green-400 transition duration-200">
               <FaWhatsapp />
             </PrismicNextLink>
           </div>
           <div className="flex items-center gap-2 text-md text-gray-300 hover:text-green-400 transition duration-200">
             <FaWhatsapp className="text-xl" />
-            <span>+1 (234) 567-8900</span>
+            <span>+44 (7492) 096-576</span>
           </div>
         </div>
 

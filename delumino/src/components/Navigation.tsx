@@ -28,6 +28,11 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
         }
     };
 
+    const handleLinkClick = () => {
+        setShowNav(false);
+        setActiveMenu(null);
+    };
+
     return (
         <>
             <div className="flex lg:hidden justify-between items-center">
@@ -63,6 +68,7 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                 <div className="flex justify-between items-center w-full px-4">
                     <PrismicNextLink
                         href="/"
+                        onClick={handleLinkClick}
                         className="flex items-center text-2xl uppercase font-extrabold tracking-tight text-white"
                     >
                         {logo && prismic.isFilled.image(logo) && (
@@ -89,7 +95,7 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 }}
                                 className="text-white uppercase font-semibold flex items-center gap-x-2 py-2 text-lg w-full text-left"
                             >
-                                <PrismicNextLink field={slice.primary.link} className="w-full">
+                                <PrismicNextLink field={slice.primary.link} onClick={handleLinkClick} className="w-full">
                                     <PrismicText field={slice.primary.label} />
                                 </PrismicNextLink>
                                 {slice.primary.menu_items.length > 0 && (
@@ -102,7 +108,7 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 <ul className="ml-4 mt-2 max-h-40 overflow-y-auto">
                                     {slice.primary.menu_items.map((item: { link: prismic.LinkField | null | undefined; label: prismic.RichTextField | null | undefined; }) => (
                                         <li key={prismic.asText(item.label)} className="text-white py-1 text-sm">
-                                            <PrismicNextLink field={item.link} className="hover:text-green-500">
+                                            <PrismicNextLink field={item.link} onClick={handleLinkClick} className="hover:text-green-500">
                                                 <PrismicText field={item.label} />
                                             </PrismicNextLink>
                                         </li>
@@ -130,7 +136,8 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 className="flex items-center gap-x-2 font-medium text-white uppercase py-3 border-b-2 border-transparent transition duration-100 ease-in-out hover:border-green-400 hover:text-green-400"
                             >
                                 {slice.primary.menu_items.length == 0 && (
-                                    <PrismicNextLink field={slice.primary.link} ><PrismicText field={slice.primary.label} /></PrismicNextLink>
+                                    <PrismicNextLink field={slice.primary.link} onClick={handleLinkClick}>
+                                        <PrismicText field={slice.primary.label} /></PrismicNextLink>
                                 )}
                                 {slice.primary.menu_items.length > 0 && (
                                     <div className="flex gap-1">
@@ -153,6 +160,7 @@ export function Navigation({ navigation, siteTitle, logo }: { navigation: any, s
                                 <div key={itemIndex} className="p-2">
                                     <PrismicNextLink
                                         field={item.link}
+                                        onClick={handleLinkClick}
                                         className="text-white hover:text-green-500"
                                     >
                                         <PrismicText field={item.label} />
