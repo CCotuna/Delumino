@@ -719,6 +719,16 @@ export interface HeroSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
+   * Photo Luminescent field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.photo_luminescent
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_luminescent: prismic.ImageField<never>;
+
+  /**
    * types field in *Hero → Default → Primary*
    *
    * - **Field Type**: Group
@@ -1031,6 +1041,16 @@ export interface PhotosGridSliceDefaultPrimaryPhotosItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   photo: prismic.ImageField<never>;
+
+  /**
+   * Photo Luminescent field in *PhotosGrid → Default → Primary → Photos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: photos_grid.default.primary.photos[].photo_luminescent
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_luminescent: prismic.ImageField<never>;
 
   /**
    * Image Link field in *PhotosGrid → Default → Primary → Photos*

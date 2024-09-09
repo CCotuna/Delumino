@@ -26,6 +26,14 @@
                   "thumbnails": []
                 }
               },
+              "photo_luminescent": {
+                "type": "Image",
+                "config": {
+                  "label": "Photo Luminescent",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
               "image_link": {
                 "type": "Link",
                 "config": {

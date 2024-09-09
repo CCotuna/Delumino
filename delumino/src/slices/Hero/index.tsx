@@ -4,6 +4,7 @@ import { Content } from "@prismicio/client";
 import { PrismicText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import * as prismic from "@prismicio/client";
+import PhotoItem from "@/components/PhotoItem";
 
 /**
  * Props for `Hero`.
@@ -113,11 +114,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
           <div className="hidden lg:block lg:max-w-xl mt-10">
             {prismic.isFilled.image(slice.primary.image) && (
-              <PrismicNextImage
-                field={slice.primary.image}
-                fill={false}
-                className="rounded-lg"
-              />
+              <PhotoItem photo={slice.primary.image} photo_luminescent={slice.primary.photo_luminescent} />
             )}
           </div>
         </div>
