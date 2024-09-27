@@ -97,8 +97,7 @@ async function Header() {
                 <div className="flex gap-3 mb-4">
                   <div>
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
-                      Hailey Garza{" "}
-                      <span className="text-gray-500">
+                      Hailey Garza <span className="text-gray-500">
                         added new tags to Ease Design System
                       </span>
                     </h5>
@@ -107,7 +106,7 @@ async function Header() {
                     </h6>
                   </div>
                 </div>
-               
+
                 <div className="flex gap-3 mb-4">
                   <div>
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
@@ -153,9 +152,11 @@ async function Header() {
               <div className="flex gap-3 mb-4">
                 <div>
                   <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
-                    Angelina <span className="text-gray-500">Messages you "Do you want to go see a movie tonight?"</span>
+                    Angelina <span className="text-gray-500">Messages you &quot;Do you want to go see a movie tonight?&quot;</span>
                   </h5>
-                  <h6 className="text-gray-500 text-xs font-normal leading-[18px]">Friday, 10:03 AM</h6>
+                  <h6 className="text-gray-500 text-xs font-normal leading-[18px]">
+                    Friday, 10:03 AM
+                  </h6>
                 </div>
               </div>
               <div className="flex gap-3">
