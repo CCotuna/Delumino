@@ -22,12 +22,48 @@ export type FooterDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Navigation → products*
+ */
+export interface NavigationDocumentDataProductsItem {
+  /**
+   * label field in *Navigation → products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.products[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * link field in *Navigation → products*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.products[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
 type NavigationDocumentDataSlicesSlice = NavigationItemSlice;
 
 /**
  * Content for Navigation documents
  */
 interface NavigationDocumentData {
+  /**
+   * products field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.products[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  products: prismic.GroupField<Simplify<NavigationDocumentDataProductsItem>>;
+
   /**
    * Slice Zone field in *Navigation*
    *
@@ -1361,6 +1397,7 @@ declare module "@prismicio/client" {
       FooterDocumentData,
       NavigationDocument,
       NavigationDocumentData,
+      NavigationDocumentDataProductsItem,
       NavigationDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
