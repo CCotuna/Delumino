@@ -95,11 +95,6 @@ async function Header() {
               {/* Drawer content here */}
               <div className="py-6">
                 <div className="flex gap-3 mb-4">
-                  <img
-                    src="https://pagedone.io/asset/uploads/1704349514.png"
-                    alt="Hailey image"
-                    className="w-12 h-12"
-                  />
                   <div>
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                       Hailey Garza{" "}
@@ -114,7 +109,6 @@ async function Header() {
                 </div>
                
                 <div className="flex gap-3 mb-4">
-                  <img src="https://pagedone.io/asset/uploads/1704351103.png" alt="Brandon image" className="w-12 h-12" />
                   <div>
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                       Brandon Newman <span className="text-gray-500">Liked your Pagedone 045-favourites-2h ago</span>
@@ -123,7 +117,6 @@ async function Header() {
                   </div>
                 </div>
                 <div className="flex gap-3 mb-4">
-                  <img src="https://pagedone.io/asset/uploads/1705646315.png" alt="Justi image" className="w-12 h-12" />
                   <div>
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                       Justi Bolt <span className="text-gray-500">Started Following</span>
@@ -132,7 +125,6 @@ async function Header() {
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <img src="https://pagedone.io/asset/uploads/1705646299.png" alt="Dave image" className="w-12 h-12" />
                   <div>
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                       Dave Wood <span className="text-gray-500">Started Following</span>
@@ -143,7 +135,6 @@ async function Header() {
               </div>
               <h2 className="text-gray-900 text-base font-semibold leading-relaxed mb-4">This Week</h2>
               <div className="flex gap-3 mb-4">
-                <img src="https://pagedone.io/asset/uploads/1705646924.png" alt="Kate image" className="w-12 h-12" />
                 <div>
                   <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                     Kate Young <span className="text-gray-500">Like your post</span>
@@ -152,7 +143,6 @@ async function Header() {
                 </div>
               </div>
               <div className="flex gap-3 mb-4">
-                <img src="https://pagedone.io/asset/uploads/1705646894.png" alt="Shanaya image" className="w-12 h-12" />
                 <div>
                   <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                     Shanaya Kale <span className="text-gray-500">commented on your post</span>
@@ -161,7 +151,6 @@ async function Header() {
                 </div>
               </div>
               <div className="flex gap-3 mb-4">
-                <img src="https://pagedone.io/asset/uploads/1705646880.png" alt="Angelina image" className="w-12 h-12" />
                 <div>
                   <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
                     Angelina <span className="text-gray-500">Messages you "Do you want to go see a movie tonight?"</span>
@@ -170,7 +159,6 @@ async function Header() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <img src="https://pagedone.io/asset/uploads/1705647084.png" alt="Natasha image" className="w-12 h-12" />
                 <div className="">
                   <div className="pb-3">
                     <h5 className="text-gray-900 text-sm font-medium leading-snug mb-1">
